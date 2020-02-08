@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <title>团建中心</title>
+<div th:replace="customize/travel/fragments/header::header"></div>
+<style type="text/css">
+	.no-article-content{
+		width: 100%;
+    	height: 200px;
+    	font-size: 20px;
+    	text-align: center;
+	}
+</style>
+</head>
+<body>
+  <div th:replace="customize/travel/fragments/s_nav::nav"></div>
+
+  <div class="m1200">
+    <div class="bread">
+      <!-- 当前所在页面：
+      <a href="#">首页</a><span class="separate">>></span>
+      <a href="#">路线汇总</a><span class="separate">>></span>
+      <a href="#">推荐路线</a> -->
+    </div>
+
+    <div class="ptitle">
+      <p class="p1">Product Center</p>
+      <p class="p2">团建中心</p>
+    </div>
+
+    <div class="category" th:if="${not #lists.isEmpty(category)}">
+      <a class="category-item" th:each="item,it:${category}" th:href="@{'/list.html?categoryId='+${item.id}+'&pageSize=6&pageNumber=0'}"
+      th:classappend = "${categoryId} eq ${item.id} ? active :''">
+        <span class="txt" th:text="${item.name}">热门团建</span>
+      </a>
+    </div>
+
+    <ul class="list">
+    	<div class="no-article-content" th:if="${#lists.isEmpty(page.list)}">
+					Sorry, 暂未发现任何文章~
+		</div>
+      <li class="item" th:each="item,temp : ${page.list}">
+        <a class="item-img" th:href="@{${'/article/'+item.id}}">
+          <img class="img" th:src="${item.coverImage}"/>
+        </a>
+        <div class="item-detail">
+          <p class="p1"><a th:href="@{${'/article/'+item.id}}" th:text="${item.title}">意大利歌诗达豪华邮轮</a></p>
+          <p class="p2"><label>成人:</label><span th:text="${item.firstPrice}">0.00</span></p>
+          <p class="p3"><label>儿童:</label><span th:text="${item.secondPrice}">0.00</span></p>
+        </div>
+      </li>
+    </ul>
+
+    <div th:replace="fragments/pagebar :: pageBar"></div>
+  </div>
+
+<div th:replace="customize/travel/fragments/footer::footer"></div>
+</body>
+</html>

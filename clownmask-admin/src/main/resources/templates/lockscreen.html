@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Lockscreen</title>
+<#include "/head.html">
+</head>
+<body class="hold-transition lockscreen">
+	<!-- Automatic element centering -->
+	<div class="lockscreen-wrapper" id="rrapp">
+		<div class="lockscreen-logo">
+			<a href="#"><b>Admin</b>CM</a>
+		</div>
+		<div id="error">
+		</div>
+		<!-- User name -->
+		<div class="lockscreen-name">{{user.username}}</div>
+		<!-- START LOCK SCREEN ITEM -->
+		<div class="lockscreen-item">
+			<!-- lockscreen image -->
+			<div class="lockscreen-image">
+				<img :src="user.avatar" alt="User Image">
+			</div>
+			<!-- /.lockscreen-image -->
+
+			<!-- lockscreen credentials (contains the form) -->
+			<div class="lockscreen-credentials">
+				<div class="input-group">
+					<input type="password" class="form-control" placeholder="password" id="locakPassword">
+					<div class="input-group-btn">
+						<button type="button" class="btn" id="unlock">
+							<i class="fa fa-arrow-right text-muted"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+			<!-- /.lockscreen credentials -->
+		</div>
+		<!-- /.lockscreen-item -->
+		<div class="help-block text-center">Enter your password to
+			retrieve your session</div>
+		<div class="text-center">
+			<a href="login.html">Or sign in as a different user</a>
+		</div>
+		<div class="lockscreen-footer text-center">
+			Copyright &copy; 2014-2020 <b><a href="https://iele.co"
+				class="text-black">Hangzhou Iele</a></b><br> All rights reserved
+		</div>
+	</div>
+	<script type="text/javascript" src="${request.contextPath}/statics/libs/router.js"></script>
+	<script type="text/javascript" src="${request.contextPath}/statics/js/menu.js"></script>
+	<script type="text/javascript">
+	$(document).keyup(function(event){
+		  if(event.keyCode ==13){
+		    $("#unlock").trigger("click");
+		  }
+	});
+	$("#unlock").click(function(){
+		var password = $("#locakPassword").val();
+		if(password === null || password === ''){
+			alert("请输入密码！");
+			return;
+		}
+		var data = "password="+password;
+		$.ajax({
+			type: "POST",
+		    url: "lockscreen",
+		    data: data,
+		    dataType: "json",
+		    success: function(result){
+				if(result.code == 0){//登录成功
+					parent.location.href ='index.html';
+				}else{
+					$("#error").html("<div class='alert alert-danger alert-dismissible'>"+
+				        	"<h4 style='margin-bottom: 0px;'><i class='fa fa-exclamation-triangle'></i>&nbsp;"+
+				        	result.msg+
+				        	"</h4>"+
+				      		"</div>"
+					);
+				}
+			}
+		});
+	});
+</script>
+</body>
+</html>

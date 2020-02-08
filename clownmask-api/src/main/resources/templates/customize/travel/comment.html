@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>联系我们</title>
+  <div th:replace="customize/travel/fragments/header::header"></div>
+</head>
+<body>
+  <div th:replace="customize/travel/fragments/s_nav::nav"></div>
+
+  <div class="m1200">
+    <div class="bread">
+      <!-- 当前所在页面：
+      <a href="#">首页</a><span class="separate">>></span>
+      <a href="#">路线汇总</a><span class="separate">>></span>
+      <a href="#">推荐路线</a> -->
+    </div>
+
+    <div class="ptitle">
+      <p class="p1">Online Message</p>
+      <p class="p2">请让我们联系您</p>
+    </div>
+
+		<form class="msg-section" id="comment-form">
+			<input name="sid" type="hidden" value="-1">
+			<div style="text-align: center;">联系人:&nbsp;&nbsp;&nbsp;<input type="text" class="input-text" style="display: inline; width: 40%; margin: 10px;" name="nickname" id="nickname"></div><div style="text-align: center;" ></div>
+			<div style="text-align: center;">联系电话:<input type="text" class="input-text" style="display: inline; width: 40%; margin: 10px;" name="qq" id="qq"></div>
+			<div style="text-align: center;">公司名称:<input type="text" class="input-text" style="display: inline; width: 40%; margin: 10px;" name="email" id="email"></div>
+			<div style="text-align: center;">其他需求:<input type="text" class="input-text" style="display: inline; width: 40%; margin: 10px;" name="content" id="content"></div>
+			<div style="text-align: center;"><button class="submit" type="button" id="submitCommentBtn">提交需求</button></div>
+		</form>
+  </div>
+  <script th:src="@{/static/libs/layer/layer.js}"></script>
+  <script th:src="@{static/js/core.js}"></script>
+	<script>
+			var sid=-1;
+			 /*提交评论*/
+		    $("#submitCommentBtn").click(function () {
+		        if($("#nickname").val()==""){
+		            layer.msg("请输入昵称")
+		            return;
+		        }else if($("#content").val()==""){
+		            layer.msg("说点什么吧")
+		            return;
+		        }
+		        Core.postAjax("t/comment",$("#comment-form").serialize(),function (data) {
+		            layer.msg(data.msg, {
+		                offset: '30%',
+		                time: 800
+		            }, function () {
+		            	document.getElementById("comment-form").reset();
+		                location.reload();
+		            });
+		        })
+		    });
+		</script>
+ <div th:replace="customize/travel/fragments/footer::footer"></div>
+</body>
+</html>

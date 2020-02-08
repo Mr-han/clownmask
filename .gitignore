@@ -1,0 +1,19 @@
+# eclipse ignore
+.settings/
+.project
+.classpath
+target
+
+# idea ignore
+.idea/
+*.ipr
+*.iws
+.mymetadata
+.checkstyle
+.classpath
+.project
+.class
+.war
+.zip
+.rar
+*.iml

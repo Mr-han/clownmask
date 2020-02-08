@@ -1,0 +1,123 @@
+<footer>
+  <div class="footer" style="padding: 20px;">
+    <div class="footer-content m1200">
+      <div class="footer-item">
+        
+        <!-- <p class="p1" style="line-height: 20px;font-size: 13px;">杭州骏进团建科技有限公司成立于2015年，主要从事企业旅游、团建、年会校园旅游的咨询、策划、执行；景点、团建基地运营管理等业务。目前已服务过学校、企事业单位500余家，服务人数10万人以上，具有行业领先的服务品质及服务经验。我们的理念:“诚信为本、实力为先，全心全意为客户服务”，我们公司秉承客户至上、服务至上的经营理念，以卓越的服务品质、专业的技术服务实力，保障客户在信息时代的高速路上驰骋，又以稳固、发展、忠诚、高效、团结与创新的精神，尊重人才注重技术，使客户在享受极致服务的同时体验最欢乐的时光。 -->
+        </p>
+      </div> 
+      <div class="footer-item" style="width: 20%;">
+        <div class="title">商户合作</div>
+        <p class="p1">项目投资、商业合作请联系：</p>
+        <p class="p1"> 15757178045</p>
+        <p class="p1"> 加入我们请联系：</p>
+        <p class="p1">15757178045</p>
+      </div>
+      <div class="footer-item" style="width: 20%;margin-right: 14%;">
+        <div class="title">联系我们</div>
+        <p class="p1">公司地址：杭州经济技术开发区3号大街209号（红帮东部乐创中心2幢717-718）</p>
+        <p class="p1"> （0571）86286703</p>
+        <p class="p1">1016918415@qq.com</p>
+      </div>
+      
+      <div class="footer-item" style="width: 40%;">
+        <div class="title">MAP</div>
+        <div class="map" id="allmap" style="height: 200px;"></div>
+      </div>
+    
+    </div>
+  </div>
+
+  <div class="footer1">
+    <div class="footer1-content" th:text="'Copyright©️'+${year} +' '+ ${user.companyName}+' '+${siteInfo.beianNumber}">Copyright©️2019 [[]] 版权所有 浙ICP备19028124</div>
+  </div>
+
+  <script>
+
+    function close1(){
+      var v = document.getElementById('video');//获取视频节点
+      $('.videos').hide();//点击关闭按钮关闭暂停视频
+      v.pause();
+      $('.videos').html();
+    }
+
+    $(function() {
+      FastClick.attach(document.body);
+
+      $('.tabs-tap').click(function(){
+        var tabs = $('.tabs-section');
+        if(tabs.hasClass('show')){
+          tabs.removeClass('show');
+        } else {
+          tabs.addClass('show');
+        }
+      })
+
+      $('.tabs-close, .tabs-bg').click(function(){
+        $('.tabs-section').removeClass('show');
+      })
+
+      $("#marquee").kxbdMarquee({direction:"left"});
+
+      var mySwiper = new Swiper ('.company-banner', {
+        loop: false,
+        autoplay: 2500,
+        // 如果需要前进后退按钮
+        nextButton: '.btn-next',
+        prevButton: '.btn-prev',
+      })
+
+      $('.video').each(function(){ //遍历视频列表
+        $(this).click(function(){ //这个视频被点击后执行
+          var img = $(this).attr('vpath');//获取视频预览图
+          var video = $(this).attr('ipath');//获取视频路径
+          $('.videos').html("<video id=\"video\" poster='"+img+"' style='width: 100%;height: 500px;background: black;' src='"+video+"' preload=\"auto\" controls=\"controls\" autoplay=\"autoplay\"></video><span onClick=\"close1()\" class=\"vclose\">x</span>");
+          $('.videos').show();
+        });
+      });
+      (function(){
+          var style = document.createElement("style");
+          style.type = "text/css";
+          var cs = ".html5zoo-wrapper-0 img{width: "+ $('#banner').width() +"px}";
+
+          try{
+            style.appendChild(document.createTextNode(cs));
+          }catch(ex){
+            style.styleSheet.cssText = cs;//针对IE
+          }
+          var head = document.getElementsByTagName("head")[0];
+          head.appendChild(style);
+     })();
+
+    })
+  </script>
+  <script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map('allmap');
+    var poi = new BMap.Point(120.346357,30.294495);
+    map.centerAndZoom(poi, 10);
+    map.enableScrollWheelZoom();
+
+    //创建检索信息窗口对象
+    var searchInfoWindow = null;
+    searchInfoWindow = new BMapLib.SearchInfoWindow(map, '具体内容', {
+        title  : '[[${user.address}]]',      //标题
+        width  : 290,             //宽度
+        panel  : "panel",         //检索结果面板
+        enableAutoPan : true,     //自动平移
+        searchTypes   :[
+            //BMAPLIB_TAB_SEARCH,   //周边检索
+            //BMAPLIB_TAB_TO_HERE,  //到这里去
+            //BMAPLIB_TAB_FROM_HERE //从这里出发
+        ]
+    });
+    var marker = new BMap.Marker(poi); //创建marker对象
+    marker.enableDragging(); //marker可拖拽
+    marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+    marker.addEventListener("click", function(e){
+        searchInfoWindow.open(marker);
+    })
+    //searchInfoWindow.open(marker);
+    map.addOverlay(marker); //在地图中添加marker
+</script>
+</footer>

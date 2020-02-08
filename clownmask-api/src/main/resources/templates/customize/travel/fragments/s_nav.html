@@ -1,0 +1,45 @@
+<nav>
+	<div class="contact-section"
+		style="margin-left: 250px; margin-top: 10px;">
+		<div class="item" style="font-size: 16px;">
+			<span class="icon icon-phone"></span><span th:text="${user.mobile}"></span>
+		</div>
+		<div class="item" style="font-size: 16px;">
+			<span class="icon icon-email"></span><span th:text="${user.email}"></span>
+		</div>
+	</div>
+
+	<div class="banner" id="banner" style="height: 300px;">
+		<!--轮播-->
+		<div id="html5zoo-1"
+			style="display: block; position: relative; margin: 0px auto 60px;">
+			<ul class="html5zoo-slides" style="display: none;">
+				<li><a href="#" target="_blank"><img
+						th:src="@{/static/images/travel/b1.jpg}" /></a></li>
+				<li><a href="#" target="_blank"><img
+						th:src="@{/static/images/travel/b2.jpg}" /></a></li>
+			</ul>
+		</div>
+
+		<div class="logo">
+			<img class="img" th:src="@{${siteInfo.logo}}" alt="" />
+		</div>
+		<div class="content">
+			<div class="tabs-section">
+				<div class="tabs-tap"></div>
+				<div class="tabs-bg"></div>
+				<div class="tabs-close">✕</div>
+				<div class="tabs">
+					<a class="tabs-item" th:href="@{/index.html}">首页</a> 
+					<a class="tabs-item" style="cursor: pointer;" th:href="@{/index.html#aboutus}">关于我们</a> 
+					<a class="tabs-item" th:href="@{/list.html}">团建中心</a> 
+					<a class="tabs-item hide" href="#"></a> <a class="tabs-item"
+						style="cursor: pointer;" th:href="@{/index.html#pasttime}">往期回顾</a> <a
+						class="tabs-item" th:href="@{/comment.html}">在线留言</a> <a
+						class="tabs-item" th:href="@{/contact.html}">联系我们</a>
+				</div>
+			</div>
+		</div>
+	<div class="banner-bg"></div>
+	</div>
+</nav>

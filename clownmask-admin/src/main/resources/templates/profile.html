@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>User Profile</title>
+<#include "/head.html">
+<link rel="stylesheet" href="${request.contextPath}/statics/plugins/upload/css/webuploader.css"/>
+<script src="${request.contextPath}/statics/plugins/upload/js/webuploader.js"></script>
+<script src="${request.contextPath}/statics/plugins/upload/js/jax.uploader.js"></script>
+<script src="${request.contextPath}/statics/plugins/upload/js/uploadCall.js"></script>
+</head>
+<body style="background-color: transparent;">
+
+	<div id="rrapp" v-cloak class="row">
+		<div class="col-md-3">
+			<!-- Profile Image -->
+			<div class="box box-primary">
+				<div class="box-body box-profile">
+					<img class="profile-user-img img-responsive img-circle"
+						:src="user.avatar"
+						alt="User profile picture">
+
+					<h3 class="profile-username text-center" v-text="user.companyName"></h3>
+
+					<p class="text-muted text-center" v-text="user.contactName">Software Engineer</p>
+
+					<ul class="list-group list-group-unbordered">
+						<li class="list-group-item"><b>邀请码</b> <a
+							class="pull-right">1,322</a></li>
+						<li class="list-group-item"><b>会员数</b> <a
+							class="pull-right">543</a></li>
+						<li class="list-group-item"><b>有效期</b> <a
+							class="pull-right" v-text="siteInfo.expireDays">13,287</a></li>
+					</ul>
+					<div class="progress progress-sm active">
+		                <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
+		                  <span class="sr-only">20% Complete</span>
+		                </div>
+		              </div>
+					<a href="#" class="btn btn-primary btn-block"><b>充值</b></a>
+					<!-- <a href="#" class="btn btn-success btn-block"><b>提现</b></a> -->
+				</div>
+				<!-- /.box-body -->
+			</div>
+			<!-- /.box -->
+		</div>
+		<!-- /.col -->
+		<div class="col-md-9">
+			<div class="nav-tabs-custom">
+				<ul class="nav nav-tabs">
+					<li class="active"><a href="#basic" data-toggle="tab">基础信息</a></li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="basic">
+						<div class="alert alert-info alert-dismissible">
+			                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			                <h4><i class="icon fa fa-info"></i> 提醒!</h4>
+							如果不需要修改,则不需要输入.例如只修改名称则只需要填写名称,不要填写其他.
+			              </div>
+						<div class="form-horizontal">
+							<input type="hidden" name="id" v-model="user.id"> 
+							<div class="form-group">
+								<label for="inputName" class="col-sm-2 control-label">公司名称</label>
+
+								<div class="col-sm-10">
+									<input type="text" class="form-control" 
+										placeholder="公司名称" v-model="user.companyName">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputEmail" class="col-sm-2 control-label">姓名</label>
+
+								<div class="col-sm-10">
+									<input type="text" class="form-control" id="inputEmail"
+										placeholder="姓名" v-model="user.contactName">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputName" class="col-sm-2 control-label">邮箱</label>
+
+								<div class="col-sm-10">
+									<input type="text" class="form-control" 
+										placeholder="邮箱" v-model="user.email">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputName" class="col-sm-2 control-label">地址</label>
+
+								<div class="col-sm-10">
+									<input type="text" class="form-control" 
+										placeholder="地址" v-model="user.address">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputName" class="col-sm-2 control-label">联系方式</label>
+
+								<div class="col-sm-10">
+									<input type="text" class="form-control" 
+										placeholder="联系方式" v-model="user.mobile">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputSkills" class="col-sm-2 control-label">密码</label>
+
+								<div class="col-sm-10">
+									<input type="password" class="form-control" 
+										placeholder="密码" readonly="readonly" @click="updatePassword"/>
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="inputSkills" class="col-sm-2 control-label">Logo</label>
+
+								<div class="col-sm-10" style="position: relative; display: table; border-collapse: separate;">
+									<div class="input-group-btn">
+										<button type="button" class="btn btn-info" id="upload-img-btn">
+											<i class="fa fa-cloud-upload upload-img-btn"></i>
+										</button>
+									</div>
+									<input type="text" class="form-control" 
+										placeholder="Logo" id="coverImage" v-model="user.avatar">
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-2 control-label"></div>
+								<div class="col-sm-4"
+									style="position: relative; border-collapse: separate;">
+									<div id="upload-content" class="upload-content"></div>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-offset-2 col-sm-10">
+									<button id="btnUpdateUser" class="btn btn-danger" @click="updateUser">Submit</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- /.tab-pane -->
+			</div>
+		</div>
+	</div>
+		<!-- /.col -->
+	<div id="passwordLayer" style="display: none;">
+		<div class="form-horizontal">
+			<div class="form-group" style="margin-left: 0px;">
+				<label for="inputName" class="col-xs-2 control-label">原密码</label>
+				<div class="col-xs-10">
+					<input type="password" class="form-control" 
+						placeholder="原密码" v-model="password">
+				</div>
+			</div>
+			<div class="form-group" style="margin-left: 0px;">
+				<label for="inputName" class="col-xs-2 control-label">新密码</label>
+				<div class="col-xs-10">
+					<input type="password" class="form-control" 
+						placeholder="新密码" v-model="newPassword">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script src="${request.contextPath}/statics/js/profile.js?_${.now?long}"></script>
+<script type="text/javascript">
+$(function() {
+	/*上传图片*/
+	$("#upload-img-btn")
+			.click(
+					function() {
+						if ($("#upload-img-div").length == 0) {
+							var imgHtml = '<div id="upload-img-div" class="upload-div upload-img-div">'
+									+ '<div class="upload-item">'
+									+ '<p class="upload-file"><i class="fa fa-cloud-upload"></i></p>'
+									+ '<p class="upload-btns">'
+									+ '<a type="button" class="btn btn-sm btn-block btn-info imgUploader" data-lang="val:msg_upload">上传</a>'
+									+ '</p>' + '</div>' + '</div>'
+							$("#upload-content").append(imgHtml);
+							$(".imgUploader")
+									.upload(
+											{
+												server : baseURL
+														+ 'upload/upload',
+												swf : baseURL
+														+ 'statics/img/Uploader.swf',
+												imgAccept : true
+											},
+											function(url, picker) {
+												$("#coverImage").val(
+														url);
+												echoGtUploadResMethd(
+														url, picker);
+											});
+						} else {
+							$("#upload-content").empty();
+						}
+					});
+});
+</script>
+</body>
+</html>

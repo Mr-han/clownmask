@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <title>联系我们</title>
+  <div th:replace="customize/travel/fragments/header::header"></div>
+</head>
+<body>
+  <div th:replace="customize/travel/fragments/s_nav::nav"></div>
+
+  <div class="m1200">
+    <div class="bread">
+      <!-- 当前所在页面：
+      <a href="#">首页</a><span class="separate">>></span>
+      <a href="#">路线汇总</a><span class="separate">>></span>
+      <a href="#">推荐路线</a> -->
+    </div>
+
+    <div class="ptitle">
+      <p class="p1">contact us</p>
+      <p class="p2">联系我们</p>
+    </div>
+
+		<div class="map-section">
+			<div class="map" id="allmap"></div>
+			<div class="map-detail">
+				<p class="p">公司地址：杭州经济技术开发区3号大街209号（红帮东部乐创中心2幢717-718）</p>
+				<p class="p">电话：（0571）86286703</p>
+				<p class="p">邮箱：1016918415@qq.com</p>
+				<div class="twocode clear">
+					<img th:src="@{/static/images/travel/QR.png}" alt="" class="img">
+					<div class="detail">
+						<p class="p1">骏进团建</p>
+						<p class="p1">HH旅行</p>
+						<p class="p1 mt20">拿出你的手机，扫描我们的微信二维码，记录我们的相关信息</p>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+
+  
+
+  <div class="footer1">
+    <div class="footer1-content" th:text="'Copyright©️'+${year} +' '+ ${user.companyName}+' '+${siteInfo.beianNumber}">Copyright©️2019 [[]] 版权所有 浙ICP备19028124</div>
+  </div>
+
+  <script>
+    function close1(){
+      var v = document.getElementById('video');//获取视频节点
+      $('.videos').hide();//点击关闭按钮关闭暂停视频
+      v.pause();
+      $('.videos').html();
+    }
+
+    $(function() {
+      FastClick.attach(document.body);
+
+      $('.tabs-tap').click(function(){
+        var tabs = $('.tabs-section');
+        if(tabs.hasClass('show')){
+          tabs.removeClass('show');
+        } else {
+          tabs.addClass('show');
+        }
+      })
+
+      $('.tabs-close, .tabs-bg').click(function(){
+        $('.tabs-section').removeClass('show');
+      })
+
+      $("#marquee").kxbdMarquee({direction:"left"});
+
+      var mySwiper = new Swiper ('.company-banner', {
+        loop: true,
+        autoplay: 2500,
+        // 如果需要前进后退按钮
+        nextButton: '.btn-next',
+        prevButton: '.btn-prev',
+      })
+
+      $('.video').each(function(){ //遍历视频列表
+        $(this).click(function(){ //这个视频被点击后执行
+          var img = $(this).attr('vpath');//获取视频预览图
+          var video = $(this).attr('ipath');//获取视频路径
+          $('.videos').html("<video id=\"video\" poster='"+img+"' style='width: 100%' src='"+video+"' preload=\"auto\" controls=\"controls\" autoplay=\"autoplay\"></video><span onClick=\"close1()\" class=\"vclose\">x</span>");
+          $('.videos').show();
+        });
+      });
+
+    })
+  </script>
+
+	<script type="text/javascript">
+      // 百度地图API功能
+      var map = new BMap.Map('allmap');
+      var poi = new BMap.Point(120.346357,30.294495);
+      map.centerAndZoom(poi, 10);
+      map.enableScrollWheelZoom();
+
+      //创建检索信息窗口对象
+      var searchInfoWindow = null;
+      searchInfoWindow = new BMapLib.SearchInfoWindow(map, '红帮东部乐创中心2幢717-718', {
+          title  : "杭州经济技术开发区3号大街209号",      //标题
+          width  : 290,             //宽度
+          panel  : "panel",         //检索结果面板
+          enableAutoPan : true,     //自动平移
+          searchTypes   :[
+              //BMAPLIB_TAB_SEARCH,   //周边检索
+              BMAPLIB_TAB_TO_HERE,  //到这里去
+              //BMAPLIB_TAB_FROM_HERE //从这里出发
+          ]
+      });
+      var marker = new BMap.Marker(poi); //创建marker对象
+      marker.enableDragging(); //marker可拖拽
+      marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+      marker.addEventListener("click", function(e){
+          searchInfoWindow.open(marker);
+      })
+      searchInfoWindow.open(marker);
+      map.addOverlay(marker); //在地图中添加marker
+	</script>
+</body>
+</html>

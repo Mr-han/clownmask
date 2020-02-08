@@ -1,0 +1,23 @@
+{
+    "msg_login" : "登陆" ,
+    "msg_admin_login_msg" : "管理员登陆" ,
+    "msg_username" : "用户名" ,
+    "msg_password" : "密码" ,
+    "msg_captcha" : "验证码" ,
+    "msg_refreshCode" : "点击刷新" ,
+    "msg_profile" : "个人信息",
+    "msg_logout":"登出", 
+    "msg_online":"在线",
+    "msg_navigation":"导航菜单",
+    "msg_layout_options":"设置",
+    "msg_home":"首页",
+    "msg_rememberMe":"记住我",
+    "msg_upload":"上传",
+    "msg_views":"访问量",
+    
+    "msg_cause" : "原因" ,
+    "msg_refused" : "被拒绝" ,
+    "msg_help_sent" : "如果您需要帮助，请联系我们！" ,
+    "msg_explain_sent" : "此处是后端传送的数据" ,
+    "msg_success" : "操作成功"
+}

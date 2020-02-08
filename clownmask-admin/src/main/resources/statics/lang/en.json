@@ -1,0 +1,23 @@
+{
+    "msg_login" : "Sign In" ,
+    "msg_admin_login_msg" : "Sign in to start your session" ,
+    "msg_username" : "username" ,
+    "msg_password" : "password" ,
+    "msg_captcha" : "Verification Code" ,
+    "msg_refreshCode" : "Click refresh" ,
+    "msg_profile" : "Profile",
+    "msg_logout":"Sign out", 
+    "msg_online":"Online",
+    "msg_navigation":"MAIN NAVIGATION",
+    "msg_layout_options":"Setting",
+    "msg_home":"Home",
+    "msg_rememberMe":"Remember me",
+    "msg_upload":"upload",
+    "msg_views":"Views",
+    
+    "msg_cause" : "原因" ,
+    "msg_refused" : "被拒绝" ,
+    "msg_help_sent" : "如果您需要帮助，请联系我们！" ,
+    "msg_explain_sent" : "此处是后端传送的数据" ,
+    "msg_success" : "操作成功"
+}

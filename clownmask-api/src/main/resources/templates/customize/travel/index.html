@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+ <head th:replace="customize/travel/fragments/header::header"></head>
+<body>
+  	<div th:replace="customize/travel/fragments/nav::nav"></div>
+ 
+  <div class="recommend-section m1200">
+    <div class="recommend-top">
+      <div class="recommend-top-icon">旅</div>
+      <p class="p1">Recommended route</p>
+      <div class="num">01</div>
+      <p class="p2">没有完美的个人，只有完美的团队。</p>
+      <p class="p1">There are no perfect individuals, only perfect teams.</p>
+    </div>
+
+    <div class="recommend-list" th:if="${not #lists.isEmpty(recommendedList)}">
+      	<div class="item" th:style="'background-image: url('+${item.coverImage}+');background-size:100% 100%;width: 48.3%;'" th:each="item,it:${recommendedList}" th:if="${it.count}<=6">
+      	<a th:href="@{${'/article/'+item.id}}"><div class="j_broad" style="font-size: 24px;" th:text="${item.keywords}">梦幻风之谷</div></a></div>
+    <div class="more-btn" style="font-size: 12px;"><a th:href="@{/list.html}">了解更多</a></div>
+    </div>
+  </div>
+
+  <div class="book-section">
+    <div class="content">
+      <div class="item">
+      </div>
+      <div class="item">
+        <label>在线预约电话：</label>
+        <div class="phone">（0571）86286703</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="company-section" id= "aboutus">
+    <div class="m1200">
+      <p class="company-title">公司简介</p>
+      <p class="p1" style="text-align: center;">杭州骏进团建科技有限公司成立于2015年，主要从事企业旅游、团建、年会校园旅游的咨询、策划、执行；景点、团建基地运营管理等业务。</p>
+      <p class="p1" style="text-align: center;">目前已服务过学校、企事业单位500余家，服务人数10万人以上，具有行业领先的服务品质及服务经验。我们的理念:“诚信为本、实力为先，全心全意为客户服务”，我们公司秉承客户至上、服务至上的经营理念，以卓越的服务品质、专业的技术服务实力，保障客户在信息时代的高速路上驰骋，又以稳固、发展、忠诚、高效、团结与创新的精神，尊重人才注重技术，使客户在享受极致服务的同时体验最欢乐的时光。</p>
+      <p class="p1" style="text-align: center;">1. 不玩寻常 100+原创主题拓展方案，寓教于乐打造体验式团建</p>
+      <p class="p1" style="text-align: center;">2. 不搜攻略 1对1免费方案定制，全程管家式贴心服务</p>
+      <p class="p1" style="text-align: center;">3. 不需等待 30分钟快速响应，24小时定制完美出行方案</p>
+      <p class="p1" style="text-align: center;">4. 不花冤枉钱  出行的目的地直采资源，去除旅游中间环节</p>
+      <p class="p1" style="text-align: center;">5. 不用担心  提前排除隐患，专业装备保护，高额意外保险，让您出行无忧。</p>
+
+      <div id="pasttime" class="company-banner swiper-container">
+        <div class="swiper-wrapper" id = "vedioBanner">
+         <div class="swiper-slide video" th:each="vedio,status : ${#strings.arraySplit(vedios, '|')}"
+               style="background-image: url(http://img.videocc.net/uimage/8/8b08716770/c/8b087167701dabb59e5c685e9416e3fc_0_b.jpg);"
+               vpath="http://img.videocc.net/uimage/8/8b08716770/c/8b087167701dabb59e5c685e9416e3fc_0_b.jpg"
+               th:attr="ipath = 'http://dpv.videocc.net/'+${vedio}+'_2.mp4'"
+               ></div>
+        </div>
+        <div class="btn-prev"></div>
+        <div class="btn-next"></div>
+      </div>
+
+      
+    </div>
+  </div>
+  <div class="m1200">
+    <div class="marquee" id="marquee">
+      <ul id = "vedioLer">
+        <li class="li">
+          <a class="a" href="javascript:void(0)">
+            <div class="img video"
+                 style="background-image: url(https://tpl-c10fe237-pic31.websiteonline.cn/upload/1_ovdk.jpg);"
+                 vpath="https://tpl-c10fe237-pic31.websiteonline.cn/upload/1_ovdk.jpg"
+                 ipath="https://blz-videos.nosdn.127.net/1/OverWatch/OVR-S03_E03_McCree_REUNION_zhCN_1080P_mb78.mp4"></div>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+<script type="text/javascript">
+	var vedios = '[[${#maps.containsKey(themeConfig,"videoUrls")} ? ${themeConfig.videoUrls} : '']]';
+	var urls = vedios.split('|');
+	var r_b = "";
+	var r_l = "";
+	for(var i = 0, len = urls.length; i < len; i++){
+	    var url = urls[i];
+	    var u = url.split('=+=');
+	    var vurl = u[0];
+	    var key = vurl.charAt(vurl.length-1);
+	    var vimage = u[1];
+	    if(i<3){
+	    	r_b+="<div class='swiper-slide video' style='background-image: url("+vimage+"') vpath="+vimage+
+               " ipath = 'http://dpv.videocc.net/8b08716770/"+key+"/"+vurl+"_2.mp4' ></div>";
+	    }
+	    if(i<6){
+        	r_l+="<li class='li'> <a class='a' href='javascript:void(0)'> <div class='img video' style='background-image: url("+vimage+"') vpath="
+                 +vimage+" ipath = 'http://dpv.videocc.net/8b08716770/"+key+"/"+vurl+"_2.mp4' ></div> </a></li>"
+	    }
+	}
+	$("#vedioBanner").html(r_b);
+	$("#vedioLer").html(r_l);
+</script>
+  <div class="videos"></div>
+  <div th:replace="customize/travel/fragments/footer::footer"></div>
+</body>
+</html>

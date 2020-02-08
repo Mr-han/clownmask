@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<title>详情</title>
+<div th:replace="customize/travel/fragments/header::header"></div>
+</head>
+<body>
+	<div th:replace="customize/travel/fragments/s_nav::nav"></div>
+
+	<div class="m1200">
+		<div class="bread">
+			<!-- 当前所在页面：
+      <a href="#">首页</a><span class="separate">>></span>
+      <a href="#">路线汇总</a><span class="separate">>></span>
+      <a href="#">推荐路线</a> -->
+		</div>
+
+		<div class="ptitle">
+			<p class="p1">Product Center</p>
+			<p class="p2">产品中心</p>
+		</div>
+
+		<div class="category" th:if="${not #lists.isEmpty(category)}">
+	      <a class="category-item" th:each="item,it:${category}" th:href="@{'/list.html?categoryId='+${item.id}+'&pageSize=6&pageNumber=0'}"
+	      th:classappend = "${categoryId} eq ${item.id} ? active :''">
+	        <span class="txt" th:text="${item.name}">热门团建</span>
+	      </a>
+	    </div>
+
+		<div class="product-section">
+			<div class="product-intro">
+				<div>
+					<img class="img" style="width: 599px; max-width: 100%;" height="334px"
+						th:src="${article.coverImage}"
+						alt="">
+				</div>
+				<div class="detail">
+					<div class="right-info" style="font-size: 18px;">
+						<div class="name" th:text="${article.title}">嗨翻一冬，大明山滑雪季解锁最大高地滑雪场，打卡大明山雪景，助你滑雪技能up up
+							up！</div>
+						<div class="pb20" th:text="${article.keywords}">大明山雪景 高山滑雪 滑雪技能装备</div>
+						<div class="detail-content">
+							<div class="det-product-day">
+								<span th:text="${article.extraString}">1天</span><span></span>
+							</div>
+							<div class="redname">
+								产品价格：&nbsp;&nbsp;￥<b class="big" th:text="${article.firstPrice}">368</b>元起（成人）&nbsp;&nbsp;&nbsp;
+								￥<b class="big" th:text="${article.secondPrice}">328</b>元起（儿童）
+							</div>
+							<div class="brief det-feature-box" th:text="${article.description}">产品特色：华东最大高地滑雪场 雪山风光
+								大明山三奇</div>
+							<div class="more-btn" style="font-size: 12px; float: right;">
+								<a th:href="@{/r/comment}">立即预定</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="product-step">
+				<div class="title" th:text="${article.title}">威海自由行</div>
+				<div th:utext="${article.content}">
+				</div>
+			</div>
+		</div>
+	</div>
+
+<div th:replace="customize/travel/fragments/footer::footer"></div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<div th:fragment="pageBar" th:if="${page!=null}">
+
+	<link rel="stylesheet" th:href="@{/static/css/pagination.css}" />
+	<script th:src="@{/static/js/jquery.pagination.js}"></script>
+
+	<div id="pagination" class="m-style" style="margin: 20px 0px;"></div>
+	<script>
+    $('#pagination').pagination({
+        pageCount: [[${(page.totalPage)}]],
+        current: [[${(page.currPage)}]],
+        coping: true,
+        homePage: '首页',
+        endPage: '末页',
+        prevContent: '上页',
+        nextContent: '下页',
+        callback: function (api) {
+        	window.location.href = ( ctx + "/list?categoryId="+[[${categoryId}]] + '&pageNumber=' +  api.getCurrent() +'&pageSize=6').replace('//', '/');
+        }
+    });
+    </script>
+</div>

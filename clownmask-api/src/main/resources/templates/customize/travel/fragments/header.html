@@ -1,0 +1,49 @@
+<header>
+	<meta charset="UTF-8">
+	<meta name="keywords" th:content="${siteInfo.siteKey}">
+	<meta name="description" th:content="${siteInfo.siteDesc}">
+	<title th:text="${siteInfo.siteTitle}"></title>
+	<link th:href="${siteInfo.logo}" rel="SHORTCUT ICON">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<link rel="stylesheet" th:href="@{/dist/customize/travel/dist/css/reset.css}">
+	<link rel="stylesheet" th:href="@{/dist/customize/travel/dist/css/index.css}">
+	<link rel="stylesheet" th:href="@{/dist/customize/travel/dist/css/media.css}">
+	<link rel="stylesheet"
+		th:href="@{/dist/customize/travel/dist/css/swiper.min.css}">
+	<!--<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>-->
+	<script src="https://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
+	<script th:src="@{/dist/customize/travel/dist/js/fastclick.js}"></script>
+	<script
+		th:src="@{/dist/customize/travel/dist/js/jquery.kxbdmarquee.js?ver=v0.0.1}"></script>
+	<script th:src="@{/dist/customize/travel/dist/js/html5zoo.js?ver=v0.0.1}"></script>
+	<script th:src="@{/dist/customize/travel/dist/js/rem.js}"></script>
+	<script th:src="@{/dist/customize/travel/dist/js/lovelygallery.js?ver=v0.0.1}"></script>
+	<script th:src="@{/dist/customize/travel/dist/js/swiper.min.js}"></script>
+	<script th:inline="javascript">var ctx = [[@{/}]];var baseURL = [[@{/}]];</script>
+	<style>
+.j_broad {
+	width: 207px;
+	height: 39px;
+	line-height: 39px;
+	/* border: 1px solid #765cac; */
+	/* color: #765cac; */
+	text-align: center;
+	margin: 0 auto;
+	display: block;
+	transition: 0.3s;
+	cursor: pointer;
+	background: linear-gradient(to left, #ffffff, #ffffff) left top
+		no-repeat, linear-gradient(to bottom, #ffffff, #ffffff) left top
+		no-repeat, linear-gradient(to left, #ffffff, #ffffff) right bottom
+		no-repeat, linear-gradient(to left, #ffffff, #ffffff) right bottom
+		no-repeat;
+	background-size: 1px 20px, 20px 1px, 1px 20px, 20px 1px;
+}
+</style>
+	<link rel="stylesheet"
+		href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+	<script type="text/javascript"
+		src="http://api.map.baidu.com/api?v=2.0&ak=a4SWPKG3I9qhXL3ZMleHutW5"></script>
+	<script type="text/javascript"
+		src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+</header>
