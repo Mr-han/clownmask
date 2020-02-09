@@ -25,6 +25,8 @@ English | [简体中文](./README.md)
 - A set of rapid development framework developed using SpringBoot, MyBatis, Shiro framework, with extremely low threshold,and ready to use.
 - Combined with some excellent fast frameworks, Clownmask is small and simple.
 - Provides a code generator.
+- gitee：[https://gitee.com/Mr_hanx/clownmask](URL 'https://gitee.com/Mr_hanx/clownmask')
+- Github：[https://github.com/Mr-han/clownmask](URL 'https://github.com/Mr-han/clownmask')
 
 ## Features
 - Flexible permission control.

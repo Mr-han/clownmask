@@ -24,6 +24,8 @@
 - 采用SpringBoot、MyBatis、Shiro框架，开发的一套快速开发框架，极低门槛，拿来即用。
 - 结合优秀的快速框架,clownmask小且简单。
 - 提供了代码生成器。
+- 码云地址：[https://gitee.com/Mr_hanx/clownmask](URL 'https://gitee.com/Mr_hanx/clownmask')
+- Github地址：[https://github.com/Mr-han/clownmask](URL 'https://github.com/Mr-han/clownmask')
 
 ## 特点 
 - 灵活的权限控制，可控制到页面或按钮，满足绝大部分的权限需求
