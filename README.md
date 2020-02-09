@@ -33,6 +33,7 @@
 - 引入quartz定时任务，可动态完成任务的添加、修改、删除、暂停、恢复及日志查看等功能
 - 页面交互使用Vue2.x，极大的提高了开发效率
 - 引入swagger文档支持，方便编写API接口文档
+- 支持多语言
 
 
 ## 数据权限设计思想
@@ -81,11 +82,20 @@ clownmask
 - 日志管理：SLF4J 1.7、Log4j
 - 页面交互：Vue2.x
 
-
 ## 软件需求
 - JDK1.8
 - MySQL5.5+
 - Maven3.0+
+
+## 运行
+
+> git clone https://github.com/Mr-han/clownmask.git
+
+- 修改 `application.yml` 中的数据库链接
+
+- 后台管理 运行 `clownmask-admin` 中的 `AdminApplication`。
+
+- 访问 ：`http://localhost:8082/admin/login.html`. 登陆名/密码：`admin/admin`
 
 ## License
 

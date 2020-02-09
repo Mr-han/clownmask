@@ -34,9 +34,10 @@ English | [简体中文](./README.md)
 - Introduced quartz scheduled tasks, which can dynamically complete tasks such as adding, modifying, deleting, pausing, resuming, and viewing logs.
 - Developed with vue2.x.
 - Using Swagger Api documentation.
+- Support multiple languages
 
 
-## Authority managementA
+## Permission control
 - In some methods with permission control turned on, the data will be filtered according to the user's dept.
 - If you want to turn on permission control,You need to add the dept field(```dept_id```) to the table and entity classes,and add annotations(```DataFilter```) to methods.
 
@@ -85,6 +86,14 @@ clownmask
 - JDK1.8
 - MySQL5.5+
 - Maven3.0+
+
+## Run
+
+> git clone https://github.com/Mr-han/clownmask.git
+
+- edit database link information in `application.yml`.
+- admin run `AdminApplication` in `clownmask-admin`。
+- address ：`http://localhost:8082/admin/login.html`. username/password ：`admin/admin`
 
 ## License
 

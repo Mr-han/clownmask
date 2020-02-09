@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50720
 File Encoding         : 65001
 
-Date: 2020-02-08 14:21:45
+Date: 2020-02-09 14:11:55
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -168,7 +168,7 @@ CREATE TABLE `qrtz_scheduler_state` (
 -- ----------------------------
 -- Records of qrtz_scheduler_state
 -- ----------------------------
-INSERT INTO `qrtz_scheduler_state` VALUES ('RenrenScheduler', 'DESKTOP-0H012JE1581131705253', '1581132103563', '15000');
+INSERT INTO `qrtz_scheduler_state` VALUES ('RenrenScheduler', 'DESKTOP-0H012JE1581216691575', '1581217912630', '15000');
 
 -- ----------------------------
 -- Table structure for qrtz_simple_triggers
@@ -316,7 +316,7 @@ CREATE TABLE `sys_config` (
 -- ----------------------------
 -- Records of sys_config
 -- ----------------------------
-INSERT INTO `sys_config` VALUES ('1', 'CLOUD_STORAGE_CONFIG_KEY', '{\"type\":1,\"qiniuDomain\":\"http://xs-img.51aogu.com\",\"qiniuPrefix\":\"_cms_\",\"qiniuAccessKey\":\"6tYzGyFMqXKfxww1zTVwo_VbvSa9dlkJ30KWsAS7\",\"qiniuSecretKey\":\"QK-mGptsNavetxMO2j8GkAMImfmJmSswhztpfBuy\",\"qiniuBucketName\":\"xsmap\",\"aliyunDomain\":\"\",\"aliyunPrefix\":\"\",\"aliyunEndPoint\":\"\",\"aliyunAccessKeyId\":\"\",\"aliyunAccessKeySecret\":\"\",\"aliyunBucketName\":\"\",\"qcloudDomain\":\"\",\"qcloudPrefix\":\"\",\"qcloudSecretId\":\"\",\"qcloudSecretKey\":\"\",\"qcloudBucketName\":\"\"}', '0', '云存储配置信息');
+INSERT INTO `sys_config` VALUES ('1', 'CLOUD_STORAGE_CONFIG_KEY', '{\"type\":1,\"qiniuDomain\":\"https://test.test.com\",\"qiniuPrefix\":\"_clownmask_\",\"qiniuAccessKey\":\"TestClownmask\",\"qiniuSecretKey\":\"TestClownmask\",\"qiniuBucketName\":\"clownmask\",\"aliyunDomain\":\"\",\"aliyunPrefix\":\"\",\"aliyunEndPoint\":\"\",\"aliyunAccessKeyId\":\"\",\"aliyunAccessKeySecret\":\"\",\"aliyunBucketName\":\"\",\"qcloudDomain\":\"\",\"qcloudPrefix\":\"\",\"qcloudSecretId\":\"\",\"qcloudSecretKey\":\"\",\"qcloudBucketName\":\"\"}', '0', '云存储配置信息');
 
 -- ----------------------------
 -- Table structure for sys_dept
@@ -502,6 +502,10 @@ CREATE TABLE `sys_role_menu` (
   `menu_id` bigint(20) DEFAULT NULL COMMENT '菜单ID',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=224 DEFAULT CHARSET=utf8 COMMENT='角色与菜单对应关系';
+
+-- ----------------------------
+-- Records of sys_role_menu
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for sys_user
