@@ -19,15 +19,6 @@
     简单友好的快速开发框架
 </div>
 
-## 截图
-<div align="center">
-    <img alt="clownmask" src="https://xs-img.51aogu.com/Screenshot2.png">
-    <img alt="clownmask" src="https://xs-img.51aogu.com/Screenshot0.png">
-    <img alt="clownmask" src="https://xs-img.51aogu.com/Screenshot1.png">
-    <img alt="clownmask" src="https://xs-img.51aogu.com/Screenshot.png">
-</div>
-
-
 ## 项目说明
 
 - 采用SpringBoot、MyBatis、Shiro框架，开发的一套快速开发框架，极低门槛，拿来即用。
@@ -35,6 +26,14 @@
 - 提供了代码生成器。
 - 码云地址：[https://gitee.com/Mr_hanx/clownmask](URL 'https://gitee.com/Mr_hanx/clownmask')
 - Github地址：[https://github.com/Mr-han/clownmask](URL 'https://github.com/Mr-han/clownmask')
+
+## 截图
+<div align="center">
+    <img alt="clownmask" src="https://xs-img.51aogu.com/Screenshot2.png">
+    <img alt="clownmask" src="https://xs-img.51aogu.com/Screenshot0.png">
+    <img alt="clownmask" src="https://xs-img.51aogu.com/Screenshot1.png">
+    <img alt="clownmask" src="https://xs-img.51aogu.com/Screenshot.png">
+</div>
 
 ## 特点 
 - 灵活的权限控制，可控制到页面或按钮，满足绝大部分的权限需求

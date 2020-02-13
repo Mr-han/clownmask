@@ -18,14 +18,6 @@ English | [简体中文](./README.md)
 </p>
 <div align="center">
     A simple and friendly rapid development framework
-</div
-
-## Screenshot
-<div align="center">
-    <img alt="clownmask" src="https://xs-img.51aogu.com/Screenshot2.png">
-    <img alt="clownmask" src="https://xs-img.51aogu.com/Screenshot0.png">
-    <img alt="clownmask" src="https://xs-img.51aogu.com/Screenshot1.png">
-    <img alt="clownmask" src="https://xs-img.51aogu.com/Screenshot.png">
 </div>
 
 ## Instruction
@@ -35,6 +27,15 @@ English | [简体中文](./README.md)
 - Provides a code generator.
 - gitee：[https://gitee.com/Mr_hanx/clownmask](URL 'https://gitee.com/Mr_hanx/clownmask')
 - Github：[https://github.com/Mr-han/clownmask](URL 'https://github.com/Mr-han/clownmask')
+
+## Screenshot
+
+<div align="center">
+    <img alt="clownmask" src="https://xs-img.51aogu.com/Screenshot2.png">
+    <img alt="clownmask" src="https://xs-img.51aogu.com/Screenshot0.png">
+    <img alt="clownmask" src="https://xs-img.51aogu.com/Screenshot1.png">
+    <img alt="clownmask" src="https://xs-img.51aogu.com/Screenshot.png">
+</div>
 
 ## Features
 - Flexible permission control.
