@@ -56,7 +56,7 @@
 		<pagehelper.spring.boot.version>1.2.5</pagehelper.spring.boot.version>
 		<commons.configuration.version>1.10</commons.configuration.version>
 		<velocity.version>1.7</velocity.version>
-		<quartz.version>2.3.0</quartz.version>
+		<quartz.version>2.3.2</quartz.version>
 		<shiro.version>1.5.0</shiro.version>
 		<kaptcha.version>0.0.9</kaptcha.version>
 		<qiniu.version>[7.2.0, 7.2.99]</qiniu.version>
