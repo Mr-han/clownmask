@@ -63,7 +63,7 @@
 		<google.code.gson>2.8.5</google.code.gson>
 		<aliyun.oss.version>2.5.0</aliyun.oss.version>
 		<qcloud.cos.version>4.4</qcloud.cos.version>
-		<org.jsoup.version>1.9.2</org.jsoup.version>
+		<org.jsoup.version>1.14.2</org.jsoup.version>
 	</properties>
 
 	<dependencies>
